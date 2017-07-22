@@ -32,6 +32,7 @@ def play_random_song(the_url):
     tmp = re.findall('current:\s({.+(?=},)}),',html)
     albumdetails = json.loads(tmp[0])
     title = albumdetails['title']
+    release_date = albumdetails['publish_date']
     #grab artist name, this does not use json because of bad formatting on the page
     tmp = re.findall('artist: "([^"]+)"',html)
     artist = tmp[0]
@@ -45,6 +46,7 @@ def play_random_song(the_url):
         print '-------------------------------'
         print 'Track: '+track['title']
         print 'Album: '+title
+        print 'Released: '+release_date
         print 'Artist: '+artist
         print the_url
         print '-------------------------------'
