@@ -13,7 +13,7 @@ if (len(sys.argv) < 2):
 def get_album_links(tag):
     print '***Retrieving Album Data***'
     albums =[]
-    for i in range(1,11):
+    for i in range(1,2):
         #for i in range(1,2): # only do 1 page for testing purposes
         url = 'https://bandcamp.com/tag/'+tag+'?page='+str(i)+'&sort_field=date'
         tagpage = requests.get(url).text
@@ -68,7 +68,8 @@ print '''
 url = sys.argv[1]
 tag = sys.argv[1]
 # get list of albums
-albums = get_album_links(tag)
+albums = get_album_links(tag)[:20]
+print 'Selected %i albums to play from' % len(albums)
 '''
 albums =[]
 tagpage= requests.get(url).text
