@@ -15,7 +15,7 @@ def get_album_links(tag):
     albums =[]
     for i in range(1,11):
         #for i in range(1,2): # only do 1 page for testing purposes
-        url = 'https://bandcamp.com/tag/'+tag+'?page='+str(i)
+        url = 'https://bandcamp.com/tag/'+tag+'?page='+str(i)+'&sort_field=date'
         tagpage = requests.get(url).text
         tmp = re.findall('href="(.+?)"\s+title',tagpage)
         if len(tmp) == 0:
