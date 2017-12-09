@@ -42,7 +42,7 @@ def play_random_song(the_url):
 
     try:
         track = trackinfo[random.randrange(len(trackinfo))]
-        fileurl = 'http:'+track['file']['mp3-128']
+        fileurl = track['file']['mp3-128']
         print '-------------------------------'
         print 'Track: '+track['title']
         print 'Album: '+title
@@ -68,7 +68,7 @@ print '''
 url = sys.argv[1]
 tag = sys.argv[1]
 # get list of albums
-albums = get_album_links(tag)[:20]
+albums = get_album_links(tag)
 print 'Selected %i albums to play from' % len(albums)
 '''
 albums =[]
